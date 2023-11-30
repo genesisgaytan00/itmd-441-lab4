@@ -4,20 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="js/script.js" defer></script>
     <title>LAB 4</title>
 </head>
 <body>
-    <h1>Sun Times</h1>
-    <h2>LOCATION</h2>
-    <select name="location" id="locations">
-        <option value="Mexico City, Mexico">Mexico City, Mexico</option>
-        <option value="Paris, France">Paris, France</option>
-        <option value="Positano, Italia">Positano, Italia</option>
-        <option value="San Juan, Puerto Rico">San Juan, Puerto Rico</option>
-        <option value="Copenhagen, Denmark">Copenhagen, Denmark</option>
-    </select>
-    <h2 class="left-heading">SunRise</h2>
-    
-    <h2 class="right-heading">SunSet</h2>
+    <div class="container">
+        <h1>Sun Times</h1>
+        <h2>LOCATION</h2>
+        <select name="location" id="locations">
+            <option value="Mexico City, Mexico">Mexico City, Mexico</option>
+            <option value="Paris, France">Paris, France</option>
+            <option value="Positano, Italy">Positano, Italy</option>
+            <option value="San Juan, Puerto Rico">San Juan, Puerto Rico</option>
+            <option value="Chicago">Current Location</option>
+        </select>
+
+        <!-- TODAY & TOMORROW -->
+        <div class="day-section">
+            <div class="text-box today">
+                <h2 class="heading">TODAY</h2>
+                <h3 class="sub-heading">SunRise:</h3>
+                <div class="results" id="todaySunrise"></div>
+                <h3 class="sub-heading">SunSet:</h3>
+                <div class="results" id="todaySunset"></div>
+                <h3 class="sub-heading">Dusk:</h3>
+                <div class="results" id="todayDusk"></div>
+                <h3 class="sub-heading">Dawn:</h3>
+                <div class="results" id="todayDawn"></div>
+            </div>
+
+            <div class="text-box tomorrow">
+                <h2 class="heading">TOMORROW</h2>
+                <h3 class="sub-heading">SunRise:</h3>
+                <div class="results" id="tomorrowSunrise"></div>
+                <h3 class="sub-heading">SunSet:</h3>
+                <div class="results" id="tomorrowSunset"></div>
+                <h3 class="sub-heading">Dusk:</h3>
+                <div class="results" id="tomorrowDusk"></div>
+                <h3 class="sub-heading">Dawn:</h3>
+                <div class="results" id="tomorrowDawn"></div>
+            </div>
+        </div>
+
+        <footer>
+            Powered by <a href="https://sunrisesunset.io/api/" target="_blank" rel="noopener noreferrer">SunriseSunset.io</a>
+        </footer>
+    </div>
 </body>
 </html>
