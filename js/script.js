@@ -69,7 +69,7 @@ function getLocation(lat, lon) {
             setResults('todayDawn', data.results.civil_twilight_begin, 'grey');
             setResults('todayDayLength', data.results.day_length, 'grey');
             setResults('todaySolarNoon', data.results.solar_noon, 'grey');
-            setResults('todayTimeZone', data.results.timezone, 'grey');
+            setResults('todayTimeZone', "UTC", 'grey');
         })
         .catch(error => {
             console.error('Error fetching today\'s data:', error);
@@ -91,7 +91,7 @@ function getLocation(lat, lon) {
             setResults('tomorrowDawn', data.results.civil_twilight_begin, 'grey');
             setResults('tomorrowDayLength', data.results.day_length, 'grey');
             setResults('tomorrowSolarNoon', data.results.solar_noon, 'grey');
-            setResults('tomorrowTimeZone', data.results.timezone, 'grey');
+            setResults('tomorrowTimeZone', "UTC", 'grey');
         })
         .catch(error => {
             console.error('Error fetching tomorrow\'s data:', error);
