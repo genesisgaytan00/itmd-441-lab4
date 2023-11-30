@@ -1,5 +1,5 @@
-.today, .tomorrow {
-    order: 1;
+.today {
+    order: 1; 
 }
 
 body {
@@ -30,9 +30,6 @@ h2 {
     position: relative;
 }
 
-.text-box {
-    margin-bottom: 10px;
-}
 
 footer {
     position: absolute;
@@ -44,3 +41,11 @@ footer {
     text-align: center;
     padding: 10px;
 }
+.location-image {
+    max-width: 50%;
+    height: 25;
+    display: block;
+    margin: 0 auto;
+}
+
+

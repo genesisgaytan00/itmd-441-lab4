@@ -15,8 +15,6 @@ document.getElementById('locations').addEventListener('change', function () {
     getLocation(lat, lon);
 });
 
-// ...
-
 // results display
 function setResults(elementId, text, color) {
     const element = document.getElementById(elementId);
@@ -24,13 +22,12 @@ function setResults(elementId, text, color) {
     element.style.color = color;
 }
 
-// function to get current location
+// function to get current location 
 function updateCurrentLocation() {
     navigator.geolocation.getCurrentPosition(
         function (position) {
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
-
             // Update the 'Current Location' option directly
             locations['Current Location'] = { lat: latitude, lon: longitude };
             const locationsDropdown = document.getElementById('locations');
@@ -54,13 +51,8 @@ function getLocation(lat, lon) {
         return;
     }
 
-    const todayUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today&formatted=0`;
-    const tomorrowUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=tomorrow&formatted=0`;
-
-    function formatTime(timestamp) {
-        const date = new Date(timestamp * 1000);
-        return date.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-    }
+    const todayUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=today`;
+    const tomorrowUrl = `https://api.sunrise-sunset.org/json?lat=${lat}&lng=${lon}&date=tomorrow`;
 
     fetch(todayUrl)
         .then(response => {
@@ -71,16 +63,16 @@ function getLocation(lat, lon) {
         })
         .then(data => {
             console.log('Today API Response:', data);
-            setResults('todaySunrise', `Sunrise: ${formatTime(data.results.sunrise)}`, 'grey');
-            setResults('todaySunset', `Sunset: ${formatTime(data.results.sunset)}`, 'grey');
-            setResults('todayDusk', `Dusk: ${formatTime(data.results.civil_twilight_end)}`, 'grey');
-            setResults('todayDawn', `Dawn: ${formatTime(data.results.civil_twilight_begin)}`, 'grey');
-            setResults('todayDayLength', `Day Length: ${data.results.day_length} seconds`, 'grey');
-            setResults('todaySolarNoon', `Solar Noon: ${formatTime(data.results.solar_noon)}`, 'grey');
-            setResults('todayTimeZone', `Time Zone: ${data.results.timezone}`, 'grey');
+            setResults('todaySunrise', `${data.results.sunrise}`, 'grey');
+            setResults('todaySunset', `${data.results.sunset}`, 'grey');
+            setResults('todayDusk', `${data.results.civil_twilight_end}`, 'grey');
+            setResults('todayDawn', `${data.results.civil_twilight_begin}`, 'grey');
+            setResults('todayDayLength', `${data.results.day_length}`, 'grey'); // Corrected ID
+            setResults('todaySolarNoon', `${data.results.solar_noon}`, 'grey'); // Corrected ID
+            setResults('todayTimeZone', `${data.results.timezone}`, 'grey'); // Corrected ID
         })
         .catch(error => {
-            console.error('Error fetching today data:', error);
+            console.error('Error', error);
         });
 
     fetch(tomorrowUrl)
@@ -92,18 +84,18 @@ function getLocation(lat, lon) {
         })
         .then(data => {
             console.log('Tomorrow API Response:', data);
-            setResults('tomorrowSunrise', `Sunrise: ${formatTime(data.results.sunrise)}`, 'grey');
-            setResults('tomorrowSunset', `Sunset: ${formatTime(data.results.sunset)}`, 'grey');
-            setResults('tomorrowDusk', `Dusk: ${formatTime(data.results.civil_twilight_end)}`, 'grey');
-            setResults('tomorrowDawn', `Dawn: ${formatTime(data.results.civil_twilight_begin)}`, 'grey');
-            setResults('tomorrowDayLength', `Day Length: ${data.results.day_length} seconds`, 'grey');
-            setResults('tomorrowSolarNoon', `Solar Noon: ${formatTime(data.results.solar_noon)}`, 'grey');
-            setResults('tomorrowTimeZone', `Time Zone: ${data.results.timezone}`, 'grey');
+            setResults('tomorrowSunrise', `${data.results.sunrise}`, 'grey');
+            setResults('tomorrowSunset', `${data.results.sunset}`, 'grey');
+            setResults('tomorrowDusk', `${data.results.civil_twilight_end}`, 'grey');
+            setResults('tomorrowDawn', `${data.results.civil_twilight_begin}`, 'grey');
+            setResults('tomorrowDayLength', `${data.results.day_length}`, 'grey');
+            setResults('tomorrowSolarNoon', `${data.results.solar_noon}`, 'grey');
+            setResults('tomorrowTimeZone', `${data.results.timezone}`, 'grey');
         })
         .catch(error => {
-            console.error('Error fetching tomorrow data:', error);
+            console.error('Error',error);
         });
 }
 
-// calling Mexico City
+// calling mex
 getLocation(19.4326, -99.1332);
