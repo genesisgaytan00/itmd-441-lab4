@@ -10,16 +10,15 @@
 <body>
     <div class="container">
         <h1>Sun Times</h1>
+        <img id="img" src="" alt="img" class="image">
         <h2>LOCATION</h2>
         <select name="location" id="locations">
             <option value="Mexico City, Mexico">Mexico City, Mexico</option>
             <option value="Paris, France">Paris, France</option>
             <option value="Positano, Italy">Positano, Italy</option>
             <option value="San Juan, Puerto Rico">San Juan, Puerto Rico</option>
-            <option value="Chicago">Current Location</option>
+            <option value="">Current Location</option>
         </select>
-
-        <!-- TODAY & TOMORROW -->
         <div class="day-section">
             <div class="text-box today">
                 <h2 class="heading">TODAY</h2>
@@ -31,6 +30,12 @@
                 <div class="results" id="todayDusk"></div>
                 <h3 class="sub-heading">Dawn:</h3>
                 <div class="results" id="todayDawn"></div>
+                <h3 class="sub-heading">Day Length:</h3>
+                <div class="results" id="todayDayLength"></div>
+                <h3 class="sub-heading">Solar Noon:</h3>
+                <div class="results" id="todaySolarNoon"></div>
+                <h3 class="sub-heading">Time Zone:</h3>
+                <div class="results" id="todayTimeZone"></div>
             </div>
 
             <div class="text-box tomorrow">
@@ -43,6 +48,12 @@
                 <div class="results" id="tomorrowDusk"></div>
                 <h3 class="sub-heading">Dawn:</h3>
                 <div class="results" id="tomorrowDawn"></div>
+                <h3 class="sub-heading">Day Length:</h3>
+                <div class="results" id="tomorrowDayLength"></div>
+                <h3 class="sub-heading">Solar Noon:</h3>
+                <div class="results" id="tomorrowSolarNoon"></div>
+                <h3 class="sub-heading">Time Zone:</h3>
+                <div class="results" id="tomorrowTimeZone"></div>
             </div>
         </div>
 
